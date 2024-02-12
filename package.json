@@ -1,0 +1,14 @@
+{
+  "name": "customer",
+  "version": "1.0.0",
+  "description": "learning node.js",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "node src/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "uuid": "^9.0.1"
+  }
+}
