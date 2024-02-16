@@ -90,6 +90,21 @@ app.get("/api/customers/customer/:customerId", async(req, res)=>{
     }
 });
 
+//api endpoint to delete a customer
+app.delete("/api/customers/:id", async(req, res)=>{
+    try{
+        const customerId = req.params.id;
+        console.log(customerId);
+        const result = await Customer.deleteOne({ _id: customerId});
+        if (result.deletedCount === 1){
+            res.status(200).json({message: "Customer deleted successfully"})
+        } else {
+            res.status(404).json({message: "Customer not found"})
+        }
+    }catch(error){
+        res.status(500).json({Error: "Something went wrong"})
+    }
+})
 const start = async () => {
     await mongoose.connect(conn);
     app.listen(PORT, () => {
